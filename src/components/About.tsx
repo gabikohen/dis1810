@@ -64,12 +64,15 @@ export default function About() {
                   1810
                 </div>
                 <div className="relative z-10 p-0">
-                  {about.facts.map((f, i) => (
-                    <div key={i} className={`flex items-center justify-between px-7 py-4 ${i < about.facts.length - 1 ? "border-b border-white/6" : ""} group hover:bg-white/3 transition-colors`}>
-                      <span className="font-condensed text-[0.72rem] font-semibold tracking-[0.15em] uppercase text-white/35">{f.label}</span>
-                      <span className={`font-sans text-sm font-medium text-right ${f.gold ? "text-gold-400" : "text-white"}`}>{f.value}</span>
-                    </div>
-                  ))}
+                  {about.facts.map((f, i) => {
+                    const isGold = "gold" in f && f.gold
+                    return (
+                      <div key={i} className={`flex items-center justify-between px-7 py-4 ${i < about.facts.length - 1 ? "border-b border-white/6" : ""} group hover:bg-white/3 transition-colors`}>
+                        <span className="font-condensed text-[0.72rem] font-semibold tracking-[0.15em] uppercase text-white/35">{f.label}</span>
+                        <span className={`font-sans text-sm font-medium text-right ${isGold ? "text-gold-400" : "text-white"}`}>{f.value}</span>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>
