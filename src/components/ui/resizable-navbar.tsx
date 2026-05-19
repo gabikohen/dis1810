@@ -134,7 +134,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
 
 export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) => {
   return (
-    <div className={cn("flex w-full flex-row items-center justify-between", className)}>
+    <div className={cn("relative z-[60] flex w-full flex-row items-center justify-between", className)}>
       {children}
     </div>
   );
@@ -145,19 +145,24 @@ export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProp
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -24, scale: 0.97 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -24, scale: 0.97 }}
-          transition={{ duration: 0.26, ease: "easeOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
           className={cn(
-            "fixed inset-0 z-50 flex items-start justify-start p-4 lg:hidden",
+            "fixed top-0 left-0 right-0 bottom-0 z-[55] flex flex-col bg-navy-950 pt-20 lg:hidden overflow-y-auto",
             className
           )}
         >
-          <div className="absolute inset-0 bg-navy-950/95 backdrop-blur-xl" />
-          <div className="relative z-10 flex w-full max-w-md flex-col gap-8 rounded-[2rem] border border-white/10 bg-navy-900/95 p-8 shadow-2xl shadow-black/50">
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.26, ease: "easeOut" }}
+            className="relative z-10 flex w-full flex-col gap-8 px-6 sm:px-8"
+          >
             {children}
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

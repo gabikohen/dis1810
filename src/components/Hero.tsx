@@ -67,18 +67,14 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <motion.h1 variants={fadeUp} className="font-display font-black leading-[0.9] mb-3">
+            <motion.h1 variants={fadeUp} className="font-display font-black leading-[0.9] mb-10">
               <span className="block text-[clamp(4rem,12vw,9rem)] text-white">Distri</span>
               <span className="block text-[clamp(4rem,12vw,9rem)]"
                 style={{ WebkitTextStroke: "2px #b8832a", color: "transparent" }}>buidora</span>
               <motion.span className="block text-[clamp(4rem,12vw,9rem)] text-gold-400 tracking-[-0.02em]"
                 initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}>1810</motion.span>
+                transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}>1810 S.A</motion.span>
             </motion.h1>
-
-            <motion.p variants={fadeUp} className="text-base uppercase tracking-[0.2em] text-gold-300 mb-8">
-              Distribuidora 1810 S.A
-            </motion.p>
 
             <motion.div variants={fadeUp} className="mb-10">
               <TextGenerateEffect

@@ -33,7 +33,7 @@ const translations = {
     about: {
       title: "Quiénes Somos",
       heading: "Conectamos el mundo con la mesa argentina",
-      paragraph1: "Distribuidora 1810 es una empresa argentina especializada en la importación, distribución y comercialización de alimentos, golosinas y productos de consumo masivo de marcas internacionales líderes.",
+      paragraph1: "Distribuidora 1810 S.A es una empresa argentina especializada en la importación, distribución y comercialización de alimentos, golosinas y productos de consumo masivo de marcas internacionales líderes.",
       paragraph2: "Con sede en Belgrano, Buenos Aires, trabajamos junto a nuestros proveedores y clientes para posicionar productos como líderes en sus respectivos mercados.",
       paragraph3: "Nuestra filosofía es clara: potenciar las oportunidades de negocio a través de un servicio integral que va desde la importación hasta la activación en el punto de venta.",
       quote: "Trabajamos para que los mejores productos del mundo lleguen a la mesa de los hogares argentinos.",
@@ -105,7 +105,7 @@ const translations = {
       heading: "Lo que dicen nuestros socios",
       items: [
         {
-          quote: "Trabajar con Distribuidora 1810 transformó nuestra presencia en Argentina. Profesionalismo total desde la importación hasta el punto de venta.",
+          quote: "Trabajar con Distribuidora 1810 S.A transformó nuestra presencia en Argentina. Profesionalismo total desde la importación hasta el punto de venta.",
           name: "Martín Rodríguez",
           designation: "Director Comercial · Supermercados del Sur",
         },
@@ -231,7 +231,7 @@ const translations = {
     about: {
       title: "Who We Are",
       heading: "We connect the world to Argentine tables",
-      paragraph1: "Distribuidora 1810 is an Argentine company specialized in the import, distribution and commercialization of food, confectionery and consumer goods from leading international brands.",
+      paragraph1: "Distribuidora 1810 S.A is an Argentine company specialized in the import, distribution and commercialization of food, confectionery and consumer goods from leading international brands.",
       paragraph2: "Based in Belgrano, Buenos Aires, we work with our suppliers and customers to position products as leaders in their respective markets.",
       paragraph3: "Our philosophy is clear: enhance business opportunities through an end-to-end service that goes from import to activation at the point of sale.",
       quote: "We work so the best products in the world reach Argentine households.",
@@ -303,7 +303,7 @@ const translations = {
       heading: "What our partners say",
       items: [
         {
-          quote: "Working with Distribuidora 1810 transformed our presence in Argentina. Total professionalism from import to point of sale.",
+          quote: "Working with Distribuidora 1810 S.A transformed our presence in Argentina. Total professionalism from import to point of sale.",
           name: "Martín Rodríguez",
           designation: "Commercial Director · Supermercados del Sur",
         },
