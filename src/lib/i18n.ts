@@ -18,7 +18,7 @@ const translations = {
       },
     },
     hero: {
-      location: "Buenos Aires · Argentina · Desde 1996",
+      location: "Buenos Aires · Argentina",
       tagline: "Importación · Distribución · Logística · Marketing",
       ctaServices: "Nuestros Servicios",
       ctaBrands: "Ver Marcas",
@@ -38,10 +38,10 @@ const translations = {
       paragraph3: "Nuestra filosofía es clara: potenciar las oportunidades de negocio a través de un servicio integral que va desde la importación hasta la activación en el punto de venta.",
       quote: "Trabajamos para que los mejores productos del mundo lleguen a la mesa de los hogares argentinos.",
       facts: [
-        { label: "Razón Social", value: "Distribuidora 1810 SRL" },
+        { label: "Razón Social", value: "Distribuidora 1810 S.A" },
         { label: "Actividad", value: "Importación & Distribución" },
         { label: "Sede", value: "Buenos Aires, Argentina" },
-        { label: "Rubros", value: "Alimentos · Golosinas · Cosméticos" },
+        { label: "Rubros", value: "Alimentos · Golosinas" },
         { label: "Especialidad", value: "Marcas Internacionales Líderes", gold: true },
         { label: "Modelo", value: "Importación Directa · B2B", gold: true },
       ],
@@ -163,8 +163,7 @@ const translations = {
       description: "Si sos distribuidor, supermercado, o tenés una marca internacional que querés posicionar en Argentina, nos encantaría conocerte y explorar oportunidades juntos.",
       details: [
         { label: "Dirección", value: "Belgrano, Buenos Aires, Argentina" },
-        { label: "Email", value: "contacto@distribuidora1810.com.ar" },
-        { label: "Teléfono", value: "+54 11 0000-0000" },
+        { label: "Email", value: "info@d1810.com" },
       ],
       form: {
         sentTitle: "¡Mensaje enviado!",
@@ -199,7 +198,7 @@ const translations = {
         brands: "Marcas",
         contact: "Contacto",
       },
-      copyright: "© 2025 Distribuidora 1810 SRL · Buenos Aires, Argentina",
+      copyright: "© 2025 Distribuidora 1810 S.A · Buenos Aires, Argentina",
     },
   },
   en: {
@@ -217,7 +216,7 @@ const translations = {
       },
     },
     hero: {
-      location: "Buenos Aires · Argentina · Since 1996",
+      location: "Buenos Aires · Argentina",
       tagline: "Import · Distribution · Logistics · Marketing",
       ctaServices: "Our Services",
       ctaBrands: "See Brands",
@@ -237,10 +236,10 @@ const translations = {
       paragraph3: "Our philosophy is clear: enhance business opportunities through an end-to-end service that goes from import to activation at the point of sale.",
       quote: "We work so the best products in the world reach Argentine households.",
       facts: [
-        { label: "Company Name", value: "Distribuidora 1810 SRL" },
+        { label: "Company Name", value: "Distribuidora 1810 S.A" },
         { label: "Activity", value: "Import & Distribution" },
         { label: "Headquarters", value: "Buenos Aires, Argentina" },
-        { label: "Sectors", value: "Food · Confectionery · Cosmetics" },
+        { label: "Sectors", value: "Food · Confectionery" },
         { label: "Specialty", value: "Leading International Brands", gold: true },
         { label: "Model", value: "Direct Import · B2B", gold: true },
       ],
@@ -362,8 +361,7 @@ const translations = {
       description: "If you are a distributor, supermarket, or have an international brand you want to position in Argentina, we would love to meet you and explore opportunities together.",
       details: [
         { label: "Address", value: "Belgrano, Buenos Aires, Argentina" },
-        { label: "Email", value: "contacto@distribuidora1810.com.ar" },
-        { label: "Phone", value: "+54 11 0000-0000" },
+        { label: "Email", value: "info@d1810.com" },
       ],
       form: {
         sentTitle: "Message sent!",
@@ -398,7 +396,7 @@ const translations = {
         brands: "Brands",
         contact: "Contact",
       },
-      copyright: "© 2025 Distribuidora 1810 SRL · Buenos Aires, Argentina",
+      copyright: "© 2025 Distribuidora 1810 S.A · Buenos Aires, Argentina",
     },
   },
 } as const
