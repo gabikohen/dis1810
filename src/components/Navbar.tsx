@@ -25,13 +25,13 @@ export default function SiteNavbar() {
     <Navbar>
       {/* Desktop */}
       <NavBody>
-        <a href="#" className="flex items-center gap-3">
+        <a href="#" className="flex items-center gap-3 whitespace-nowrap">
           <div
             className="w-8 h-8 border border-gold-500 flex items-center justify-center"
             style={{ clipPath: "polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)" }}
           />
-          <span className="font-condensed font-bold text-white text-base tracking-wide">
-            <span className="text-gold-400">18</span>10 Distribuidora
+          <span className="font-condensed font-bold text-white text-base tracking-wide leading-none">
+            Distribuidora <span className="text-gold-400">1810</span> S.A
           </span>
         </a>
         <NavItems items={navItems} />
@@ -56,8 +56,8 @@ export default function SiteNavbar() {
       {/* Mobile */}
       <MobileNav>
         <MobileNavHeader>
-          <a href="#" className="font-condensed font-bold text-white text-base tracking-wide">
-            <span className="text-gold-400">18</span>10 Distribuidora
+          <a href="#" className="font-condensed font-bold text-white text-base tracking-wide whitespace-nowrap leading-none">
+            Distribuidora <span className="text-gold-400">1810</span> S.A
           </a>
           <MobileNavToggle isOpen={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)} />
         </MobileNavHeader>
