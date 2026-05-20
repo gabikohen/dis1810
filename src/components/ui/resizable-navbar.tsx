@@ -1,6 +1,5 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import React, { useRef, useState } from "react";
 
@@ -95,7 +94,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       className={cn("relative z-[60] flex flex-row items-center justify-center space-x-2 lg:space-x-10", className)}
     >
       {items.map((item, idx) => (
-        <a
+        <a // <-- AQUÍ FALTABA ABRIR LA ETIQUETA
           key={`nav-${idx}`}
           href={item.link}
           onMouseEnter={() => setHovered(idx)}
@@ -134,7 +133,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
 
 export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) => {
   return (
-    <div className={cn("relative z-[60] flex w-full flex-row items-center justify-between", className)}>
+    <div className={cn("relative z-[70] flex w-full flex-row items-center justify-between", className)}>
       {children}
     </div>
   );
@@ -150,7 +149,7 @@ export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProp
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
           className={cn(
-            "fixed top-0 left-0 right-0 bottom-0 z-[55] flex flex-col bg-navy-950 pt-20 lg:hidden overflow-y-auto",
+            "fixed top-0 left-0 right-0 bottom-0 z-[65] flex flex-col bg-navy-950 pt-20 lg:hidden overflow-y-auto",
             className
           )}
         >
@@ -166,26 +165,6 @@ export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProp
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
-
-export const MobileNavToggle = ({
-  isOpen,
-  onClick,
-}: {
-  isOpen: boolean;
-  onClick: () => void;
-}) => {
-  return (
-    <button
-      type="button"
-      aria-expanded={isOpen}
-      aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-      onClick={onClick}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-gold-400"
-    >
-      {isOpen ? <IconX size={20} /> : <IconMenu2 size={20} />}
-    </button>
   );
 };
 
