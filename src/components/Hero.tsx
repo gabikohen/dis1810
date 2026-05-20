@@ -73,7 +73,7 @@ export default function Hero() {
                 style={{ WebkitTextStroke: "2px #b8832a", color: "transparent" }}>buidora</span>
               <motion.span className="block text-[clamp(4rem,12vw,9rem)] text-gold-400 tracking-[-0.02em]"
                 initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}>1810 S.A</motion.span>
+                transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}>1810</motion.span>
             </motion.h1>
 
             <motion.div variants={fadeUp} className="mb-10">
