@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { MapPin, Mail, Phone, ArrowRight } from "lucide-react"
-import emailjs from "@emailjs/browser"
 import { useScrollReveal } from "@/hooks/useScrollReveal"
 import { useLanguage, getLocaleData } from "@/lib/i18n"
 
-// TODO: Reemplaza estas credenciales con las tuyas en https://www.emailjs.com
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY_HERE"
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID_HERE"
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID_HERE"
+const CONTACT_EMAIL = "info@d1810.com"
 
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const { ref, visible } = useScrollReveal()
@@ -27,13 +23,6 @@ export default function Contact() {
   const { locale, t } = useLanguage()
   const { contact } = getLocaleData(locale)
 
-  // Inicializar EmailJS
-  useEffect(() => {
-    if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY_HERE") {
-      emailjs.init(EMAILJS_PUBLIC_KEY)
-    }
-  }, [])
-
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(f => ({ ...f, [e.target.name]: e.target.value }))
   }
@@ -48,31 +37,27 @@ export default function Contact() {
       return
     }
 
-    // Si no está configurado EmailJS, solo mostrar éxito local
-    if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY_HERE") {
-      setSent(true)
-      return
-    }
-
     setLoading(true)
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.nombre,
-          from_email: form.email,
-          company: form.empresa,
-          inquiry_type: form.tipo,
-          message: form.mensaje,
-          to_email: "tu-email@ejemplo.com", // Reemplaza con tu email
-        }
-      )
+      const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Nuevo contacto de ${form.nombre}`,
+          nombre: form.nombre,
+          empresa: form.empresa,
+          email: form.email,
+          tipo_consulta: form.tipo,
+          mensaje: form.mensaje,
+        }),
+      })
+
+      if (!res.ok) throw new Error("FormSubmit error")
       setSent(true)
     } catch (err) {
       setError(t("contact.form.errorSend") || "Error al enviar el mensaje. Intenta nuevamente.")
-      console.error("EmailJS error:", err)
+      console.error("FormSubmit error:", err)
     } finally {
       setLoading(false)
     }
