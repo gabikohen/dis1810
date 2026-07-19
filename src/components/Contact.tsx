@@ -19,7 +19,7 @@ export default function Contact() {
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-  const [form, setForm] = useState({ nombre: "", empresa: "", email: "", tipo: "", mensaje: "" })
+  const [form, setForm] = useState({ nombre: "", empresa: "", email: "", telefono: "", tipo: "", mensaje: "" })
   const { locale, t } = useLanguage()
   const { contact } = getLocaleData(locale)
 
@@ -48,12 +48,23 @@ export default function Contact() {
           nombre: form.nombre,
           empresa: form.empresa,
           email: form.email,
+          telefono: form.telefono,
           tipo_consulta: form.tipo,
           mensaje: form.mensaje,
         }),
       })
 
-      if (!res.ok) throw new Error("FormSubmit error")
+      const data = await res.json().catch(() => null)
+
+      // FormSubmit responde 200 aunque el formulario no esté activado o falle:
+      // hay que mirar el campo `success` del JSON, no solo res.ok.
+      const ok = res.ok && data && String(data.success) === "true"
+
+      if (!ok) {
+        console.error("FormSubmit error:", data)
+        throw new Error(data?.message || "FormSubmit error")
+      }
+
       setSent(true)
     } catch (err) {
       setError(t("contact.form.errorSend") || "Error al enviar el mensaje. Intenta nuevamente.")
@@ -150,6 +161,15 @@ export default function Contact() {
                   <input
                     name="email" type="email" value={form.email} onChange={handle}
                     placeholder={t("contact.form.placeholderEmail")}
+                    className="bg-white/5 border border-white/10 px-4 py-3 text-white font-sans text-sm placeholder:text-white/25 focus:outline-none focus:border-gold-500 transition-colors"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label className="font-condensed text-[0.67rem] font-semibold tracking-[0.18em] uppercase text-white/35">{t("contact.form.phone")}</label>
+                  <input
+                    name="telefono" type="tel" value={form.telefono} onChange={handle}
+                    placeholder={t("contact.form.placeholderPhone")}
                     className="bg-white/5 border border-white/10 px-4 py-3 text-white font-sans text-sm placeholder:text-white/25 focus:outline-none focus:border-gold-500 transition-colors"
                   />
                 </div>
