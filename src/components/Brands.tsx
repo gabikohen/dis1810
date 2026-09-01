@@ -1,5 +1,4 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal"
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards"
 import { useLanguage, getLocaleData } from "@/lib/i18n"
 
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -34,8 +33,36 @@ export default function Brands() {
           </div>
         </Reveal>
       </div>
-      <InfiniteMovingCards items={brands.items} direction="left" speed="slow" pauseOnHover className="mb-6" />
-      <InfiniteMovingCards items={[...brands.items].reverse()} direction="right" speed="normal" pauseOnHover />
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <Reveal>
+          <div className="flex items-center gap-3 mb-10">
+            <span className="font-condensed text-[0.67rem] font-semibold tracking-[0.22em] uppercase text-white/30">{brands.featuredTitle}</span>
+            <div className="h-px flex-1 bg-white/10" />
+          </div>
+        </Reveal>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-16 max-w-3xl mx-auto">
+          {brands.featured.map((product, i) => (
+            <Reveal key={product.name} delay={i * 120}>
+              <div className="group relative flex flex-col items-center text-center">
+                <div className="relative flex h-56 lg:h-64 w-full items-center justify-center">
+                  <div className="absolute inset-x-6 bottom-4 h-24 bg-gold-500/10 blur-2xl rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    loading="lazy"
+                    className="relative max-h-full w-auto object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.55)] transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="mt-6 font-condensed text-sm font-bold tracking-[0.05em] uppercase text-white">
+                  {product.name}
+                </div>
+                <div className="mt-1 font-sans text-xs text-white/40">{product.desc}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
     </section>
   )
 }

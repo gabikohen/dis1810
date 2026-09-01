@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { MapPin, Mail, Phone, ArrowRight } from "lucide-react"
+import { MapPin, Mail, ArrowRight } from "lucide-react"
 import { useScrollReveal } from "@/hooks/useScrollReveal"
 import { useLanguage, getLocaleData } from "@/lib/i18n"
+import { WhatsAppIcon, WHATSAPP_URL } from "@/components/WhatsAppFloat"
 
 const CONTACT_EMAIL = "info@d1810.com"
 
@@ -99,21 +100,31 @@ export default function Contact() {
             </Reveal>
 
             <div className="space-y-6">
-              {contact.details.map(({ label, value }, i) => (
-                <Reveal key={i} delay={i * 100}>
+              {contact.details.map(({ label, value }, i) => {
+                const isWhatsApp = i === 2
+                const inner = (
                   <div className="flex items-start gap-4">
-                    <div className="w-9 h-9 shrink-0 border border-gold-500/25 flex items-center justify-center">
+                    <div className={`w-9 h-9 shrink-0 border border-gold-500/25 flex items-center justify-center ${isWhatsApp ? "transition-colors group-hover:border-gold-500/60" : ""}`}>
                       {i === 0 && <MapPin size={14} className="text-gold-500" strokeWidth={1.5} />}
                       {i === 1 && <Mail size={14} className="text-gold-500" strokeWidth={1.5} />}
-                      {i === 2 && <Phone size={14} className="text-gold-500" strokeWidth={1.5} />}
+                      {isWhatsApp && <WhatsAppIcon size={15} className="text-gold-500" />}
                     </div>
                     <div>
                       <div className="font-condensed text-[0.67rem] font-semibold tracking-[0.18em] uppercase text-white/30 mb-0.5">{label}</div>
-                      <div className="font-sans text-sm text-white">{value}</div>
+                      <div className={`font-sans text-sm text-white ${isWhatsApp ? "transition-colors group-hover:text-gold-400" : ""}`}>{value}</div>
                     </div>
                   </div>
-                </Reveal>
-              ))}
+                )
+                return (
+                  <Reveal key={i} delay={i * 100}>
+                    {isWhatsApp ? (
+                      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="group block">
+                        {inner}
+                      </a>
+                    ) : inner}
+                  </Reveal>
+                )
+              })}
             </div>
           </div>
 

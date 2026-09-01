@@ -87,6 +87,11 @@ const translations = {
       title: "Portafolio",
       heading: "Marcas que representamos",
       description: "Líderes internacionales, disponibles en Argentina gracias a nuestra operación.",
+      featuredTitle: "Productos destacados",
+      featured: [
+        { name: "Haribo Goldbears", desc: "Gomitas · Receta de Alemania", img: "/productos/haribo-goldbears.png" },
+        { name: "Caprice Classic", desc: "Barquillos · Papadopoulos", img: "/productos/caprice.png" },
+      ],
       items: [
         { name: "Philadelphia", desc: "Cream Cheese · Kraft Heinz" },
         { name: "Sour Patch", desc: "Golosinas Ácidas · Mondelez" },
@@ -164,6 +169,7 @@ const translations = {
       details: [
         { label: "Dirección", value: "Belgrano, Buenos Aires, Argentina" },
         { label: "Email", value: "info@d1810.com" },
+        { label: "WhatsApp", value: "+54 9 11 4156 7000" },
       ],
       form: {
         sentTitle: "¡Mensaje enviado!",
@@ -178,7 +184,7 @@ const translations = {
         placeholderName: "Tu nombre",
         placeholderCompany: "Razón social",
         placeholderEmail: "correo@empresa.com",
-        placeholderPhone: "+54 11 1234 5678",
+        placeholderPhone: "+54 9 11 4156 7000",
         placeholderSelect: "Seleccioná una opción",
         placeholderMessage: "Contanos sobre tu negocio o consulta...",
         submit: "Enviar Consulta",
@@ -287,6 +293,11 @@ const translations = {
       title: "Portfolio",
       heading: "Brands we represent",
       description: "International leaders, available in Argentina thanks to our operation.",
+      featuredTitle: "Featured products",
+      featured: [
+        { name: "Haribo Goldbears", desc: "Gummies · German recipe", img: "/productos/haribo-goldbears.png" },
+        { name: "Caprice Classic", desc: "Wafer rolls · Papadopoulos", img: "/productos/caprice.png" },
+      ],
       items: [
         { name: "Philadelphia", desc: "Cream Cheese · Kraft Heinz" },
         { name: "Sour Patch", desc: "Sour Candy · Mondelez" },
@@ -364,6 +375,7 @@ const translations = {
       details: [
         { label: "Address", value: "Belgrano, Buenos Aires, Argentina" },
         { label: "Email", value: "info@d1810.com" },
+        { label: "WhatsApp", value: "+54 9 11 4156 7000" },
       ],
       form: {
         sentTitle: "Message sent!",
@@ -378,7 +390,7 @@ const translations = {
         placeholderName: "Your name",
         placeholderCompany: "Company name",
         placeholderEmail: "email@company.com",
-        placeholderPhone: "+54 11 1234 5678",
+        placeholderPhone: "+54 9 11 4156 7000",
         placeholderSelect: "Select an option",
         placeholderMessage: "Tell us about your business or inquiry...",
         submit: "Submit Inquiry",

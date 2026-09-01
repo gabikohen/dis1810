@@ -9,6 +9,7 @@ import Testimonials from "@/components/Testimonials"
 import Why from "@/components/Why"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
+import WhatsAppFloat from "@/components/WhatsAppFloat"
 import { AnimatePresence, motion } from "framer-motion"
 import { LanguageProvider, useLanguage } from "@/lib/i18n"
 
@@ -40,6 +41,7 @@ function AppContent() {
           <Footer />
         </motion.div>
       </AnimatePresence>
+      <WhatsAppFloat />
     </div>
   )
 }
