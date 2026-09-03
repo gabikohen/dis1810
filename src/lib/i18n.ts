@@ -90,7 +90,7 @@ const translations = {
       featuredTitle: "Productos destacados",
       featured: [
         { name: "Haribo Goldbears", desc: "Gomitas · Receta de Alemania", img: "/productos/haribo-goldbears.png" },
-        { name: "Caprice Classic", desc: "Barquillos · Papadopoulos", img: "/productos/caprice.png" },
+        { name: "Caprice Classic", desc: "Barquillos · Papadopoulos", img: "/productos/caprice.svg" },
       ],
       items: [
         { name: "Philadelphia", desc: "Cream Cheese · Kraft Heinz" },
@@ -117,7 +117,7 @@ const translations = {
         {
           quote: "La rapidez con la que posicionaron nuestros productos en el mercado argentino superó todas nuestras expectativas. Son el socio ideal.",
           name: "Sarah Johnson",
-          designation: "Export Manager ·  Tina & Co.",
+          designation: "Export Manager · Sudamer Foods",
         },
         {
           quote: "Su conocimiento del mercado local y la red de distribución que tienen no tiene comparación. Llevaron nuestra marca a otro nivel.",
@@ -296,7 +296,7 @@ const translations = {
       featuredTitle: "Featured products",
       featured: [
         { name: "Haribo Goldbears", desc: "Gummies · German recipe", img: "/productos/haribo-goldbears.png" },
-        { name: "Caprice Classic", desc: "Wafer rolls · Papadopoulos", img: "/productos/caprice.png" },
+        { name: "Caprice Classic", desc: "Wafer rolls · Papadopoulos", img: "/productos/caprice.svg" },
       ],
       items: [
         { name: "Philadelphia", desc: "Cream Cheese · Kraft Heinz" },
@@ -323,7 +323,7 @@ const translations = {
         {
           quote: "The speed with which they positioned our products in the Argentine market exceeded all expectations. They are the ideal partner.",
           name: "Sarah Johnson",
-          designation: "Export Manager · Mondelez International",
+          designation: "Export Manager · Sudamer Foods",
         },
         {
           quote: "Their knowledge of the local market and distribution network is unmatched. They took our brand to another level.",
