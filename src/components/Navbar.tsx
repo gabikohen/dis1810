@@ -74,7 +74,7 @@ export default function SiteNavbar() {
         <MobileNavHeader>
           <a
             href="#"
-            className="font-condensed font-bold text-white text-base tracking-wide whitespace-nowrap leading-none"
+            className="font-condensed font-bold text-white text-xl tracking-wide whitespace-nowrap leading-none"
           >
             Distribuidora <span className="text-gold-400">1810</span> 
           </a>
@@ -91,23 +91,21 @@ export default function SiteNavbar() {
         </MobileNavHeader>
 
         <MobileNavMenu isOpen={isOpen} onClose={() => setOpen(false)}>
-          <div className="pt-8 pb-12 flex flex-col gap-8">
+          <div className="flex-1 flex flex-col items-center justify-center gap-8 py-8">
             {navItems.map((item) => (
               <a
                 key={item.link}
                 href={item.link}
                 onClick={() => setOpen(false)}
-                className="font-display text-4xl font-bold text-white hover:text-gold-400 transition-colors w-full py-3"
+                className="font-display text-4xl font-bold text-white hover:text-gold-400 transition-colors w-full py-3 text-center"
               >
                 {item.name}
               </a>
             ))}
           </div>
 
-          <div className="flex-1" />
-
           <div className="w-full space-y-4 pb-8">
-            <div className="flex items-center gap-1.5 bg-white/5 rounded-full px-2 py-1.5 w-fit">
+            <div className="ml-auto flex items-center gap-1.5 bg-white/5 rounded-full px-2 py-1.5 w-fit">
               {languageOptions.map((option) => (
                 <button
                   key={option.code}

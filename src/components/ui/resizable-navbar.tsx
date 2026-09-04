@@ -1,7 +1,8 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -140,7 +141,21 @@ export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) =
 };
 
 export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProps) => {
-  return (
+  // El overlay se monta en <body> mediante un portal: el contenedor de MobileNav
+  // usa backdrop-blur al hacer scroll, y backdrop-filter crea un containing block
+  // que dejaba el menu "fixed" recortado dentro de la barra (se veia vacio).
+  useEffect(() => {
+    if (!isOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [isOpen]);
+
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -149,7 +164,7 @@ export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProp
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
           className={cn(
-            "fixed top-0 left-0 right-0 bottom-0 z-[65] flex flex-col bg-navy-950 pt-20 lg:hidden overflow-y-auto",
+            "fixed top-0 left-0 right-0 bottom-0 z-[45] flex flex-col bg-navy-950 pt-20 lg:hidden overflow-y-auto",
             className
           )}
         >
@@ -158,13 +173,14 @@ export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProp
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.26, ease: "easeOut" }}
-            className="relative z-10 flex w-full flex-col gap-8 px-6 sm:px-8"
+            className="relative z-10 flex w-full flex-1 flex-col gap-8 px-6 sm:px-8"
           >
             {children}
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
